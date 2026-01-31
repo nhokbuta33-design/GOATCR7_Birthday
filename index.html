@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday CR7</title>
+
+<style>
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: url("Hinhanh/starry-sky-1655503_1920.jpg") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+
+#box {
+    background: rgba(3, 3, 3, 0.5);
+    padding: 30px 60px;
+    border-radius: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    backdrop-filter: blur(5px);
+}
+
+h1 {
+    font-size: 70px;
+    color: pink;
+    text-shadow: 0 0 10px white, 0 0 30px pink;
+    animation: glow 2s infinite alternate;
+}
+
+#timer {
+    font-size: 40px;
+    margin-top: 10px;
+    text-shadow: 0 0 10px cyan;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px pink; }
+    to { text-shadow: 0 0 30px pink, 0 0 60px red; }
+}
+
+/* SAO RƠI */
+.star {
+    position: fixed;
+    top: -10px;
+    font-size: 10px;
+    color: white;
+    animation: fall linear infinite;
+}
+@keyframes fall {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+
+/* ======= THƯ ẢNH ======= */
+#letterContainer {
+    display: none;
+    text-align: center;
+}
+
+/* Ảnh lá thư */
+#letterImg {
+    width: 300px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+#letterImg:hover {
+    transform: scale(1.1);
+}
+/* Lá thư rung nhẹ */
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-2deg); }
+    100% { transform: rotate(0deg); }
+}
+
+#letterImg {
+    width: 300px;
+    cursor: pointer;
+    animation: shake 2s infinite;
+    transition: 0.5s;
+}
+/* THIỆP CHÚC MỪNG */
+/* THIỆP ẢNH */
+#card {
+    display: none;
+    position: relative;
+    width: 600px;
+    animation: pop 0.5s ease;
+}
+
+#cardImg {
+    width: 120%;
+    border-radius: 20px;
+    box-shadow: 0 0 25px pink;
+}
+
+/* Chữ nằm trên ảnh */
+#cardText {
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    transform: translateX(-50%);
+    width: 80%;
+    font-size: 20px;
+    color: cyan;/* đổi nếu nền tối */
+    text-shadow: 0 0 10px #ff5fa2; 
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0 0 10px #ff5fa2; 
+    line-height: 1.6;
+}
+
+/* Hiệu ứng bật thiệp */
+@keyframes pop {
+    from { transform: scale(0); }
+    to { transform: scale(1); }
+}
+#resultImg {
+    display: none;
+    width: 150px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    animation: bounce 2s infinite;
+}
+
+#resultImg:hover {
+    transform: scale(1.2);
+}
+
+/* Hiệu ứng nhảy */
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+#cr7Gallery {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.cr7Img {
+    position: absolute;
+    left: -500px; /* BẮT ĐẦU SÁT BÊN TRÁI */
+    border-radius: 15px;
+    box-shadow: 0 0 20px gold;
+    animation: cr7Run linear infinite;
+}
+
+/* CR7 chạy từ trái → phải */
+@keyframes cr7Run {
+    from {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    to {
+        transform: translateX(160vw); /* chạy vượt màn hình */
+        opacity: 0;
+    }
+}
+
+/* Nội dung thư */
+#letterContent {
+    margin-top: 20px;
+    font-size: 15px;
+    opacity: 0;
+    color: rgb(239, 240, 242);
+    line-height: 1.6;
+    text-shadow: 0 0 10px white;
+    background: rgba(188, 175, 175, 0.5);
+    padding: 20px;
+    border-radius: 15px;
+}
+.cursor-star {
+    position: fixed;
+    pointer-events: none;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    text-shadow: 0 0 10px gold, 0 0 20px white;
+    animation: fadeStar 1s forwards;
+}
+
+@keyframes fadeStar {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(2); }
+}
+
+
+/* Nút xem kết quả */
+
+
+
+/* Gallery CR7 */
+
+</style>
+</head>
+
+<body>
+
+<!-- HAPPY BIRTHDAY -->
+<div id="box">
+    <h1>🎉 HAPPY BIRTHDAY CR7 🎉</h1>
+    <div id="timer">23:59:55</div>
+</div>
+
+<!-- THƯ -->
+<div id="letterContainer">
+    <img id="letterImg" src="Hinhanh/thutachnen">
+    <div id="letterContent"></div>
+   <img id="resultImg" src="Hinhanh/quâtch">
+
+</div>
+<div id="card">
+    <img id="cardImg" src="Hinhanh/thiepmoi.png">
+    <div id="cardText"></div>
+</div>
+
+
+
+<!-- ẢNH CR7 -->
+<div id="cr7Gallery"></div>
+
+
+
+<!-- NHẠC -->
+<audio id="bgMusic" loop>
+    <source src="Nhạc Chill TikTok - Những Bản Nhạc Lofi Chill Nhẹ Nhàng - Nhạc Lofi Buồn Hot Nhất Hiện Nay [ieveudYcUjk].mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Phát nhạc khi click
+document.addEventListener("click", function() {
+    document.getElementById("bgMusic").play();
+}, { once: true });
+
+
+// SAO RƠI
+function createStar() {
+    const star = document.createElement("div");
+    star.classList.add("star");
+    star.innerHTML = "★";
+    star.style.left = Math.random() * 100 + "vw";
+    star.style.fontSize = Math.random() * 15 + 10 + "px";
+    star.style.animationDuration = Math.random() * 10 + 5 + "s";
+    document.body.appendChild(star);
+    setTimeout(() => star.remove(), 10000);
+}
+setInterval(createStar, 120);
+
+
+// ĐỒNG HỒ
+let hours = 23, minutes = 59, seconds = 55;
+let done = false;
+
+function updateTimer() {
+    if (done) return;
+
+    seconds++;
+    if (seconds >= 60) { seconds = 0; minutes++; }
+    if (minutes >= 60) { minutes = 0; hours++; }
+
+    if (hours == 24) {
+        done = true;
+        document.getElementById("box").style.display = "none";
+        document.getElementById("letterContainer").style.display = "block";
+    }
+
+    document.getElementById("timer").innerText =
+        String(hours).padStart(2,'0') + ":" +
+        String(minutes).padStart(2,'0') + ":" +
+        String(seconds).padStart(2,'0');
+}
+setInterval(updateTimer, 1000);
+
+
+// LỜI CHÚC CR7
+let messageText = `🎉 Happy Birthday Cristiano Ronaldo!
+Cảm ơn anh vì những khoảnh khắc bóng đá tuyệt vời
+Những bàn thắng lịch sử và tinh thần không bao giờ bỏ cuộc.
+gbao chúc anh sẽ có một kỳ WORLD CUP thành công
+ GOAT forever! SIUUUUUUUU! ⚽🐐`;
+
+let index = 0;
+// DANH SÁCH NHIỀU ẢNH CR7
+let cr7Images = [
+    "Hinhanh/player-7902240_1920.jpg",
+    "Hinhanh/tải xuống.jpg",
+    "Hinhanh/tải xuống (2).jpg",
+    
+    "Hinhanh/cr75.jpg",
+    "Hinhanh/CR71.jpg",
+    "Hinhanh/CR72.jpg",
+    "Hinhanh/CR73.jpg",
+    "Hinhanh/CR74.jpg",
+    "Hinhanh/cr1.jpg",
+    "Hinhanh/cr2.jpg",
+    "Hinhanh/cr3.jpg",
+    "Hinhanh/cr5.jpg",
+
+    
+
+    
+];
+
+
+// Click lá thư để mở thiệp
+document.getElementById("letterImg").onclick = function() {
+    this.style.display = "none"; // ẩn lá thư
+    document.getElementById("card").style.display = "block";
+    typeWriter();
+};
+
+
+// Hiệu ứng chữ chạy
+function typeWriter() {
+    if (index < messageText.length) {
+        let char = messageText.charAt(index);
+        document.getElementById("cardText").innerHTML += char === "\n" ? "<br>" : char;
+        index++;
+        setTimeout(typeWriter, 40);
+    } else {
+        document.getElementById("resultImg").style.display = "block";
+
+    }
+}
+
+// Bấm nút xem kết quả
+document.getElementById("resultImg").onclick = function() {
+
+    // Ẩn thư + thiệp + hộp quà
+    document.getElementById("letterContainer").style.display = "none";
+    document.getElementById("card").style.display = "none";
+    this.style.display = "none";
+
+    let gallery = document.getElementById("cr7Gallery");
+    gallery.style.display = "block";
+
+    // tạo 40 ảnh CR7 bay
+    for(let i = 0; i < 25; i++){
+        let img = document.createElement("img");
+
+        // RANDOM ảnh CR7
+        let randomImg = cr7Images[Math.floor(Math.random() * cr7Images.length)];
+        img.src = randomImg;
+
+        img.className = "cr7Img";
+
+        // vị trí ngẫu nhiên trên màn hình
+        img.style.top = Math.random() * 80 + "vh";
+        img.style.left = "-500px"; // bắt đầu từ ngoài màn hình bên trái
+
+
+        // kích thước ngẫu nhiên (100px → 350px)
+        let size = Math.random() * 250 + 100;
+        img.style.width = size + "px";
+
+        // tốc độ bay khác nhau
+        img.style.animationDuration = (Math.random() * 8 + 4) + "s";
+        img.style.animationDelay = Math.random() * 5 + "s";
+
+        gallery.appendChild(img);
+    }
+};
+document.addEventListener("mousemove", function(e) {
+    let star = document.createElement("div");
+    star.className = "cursor-star";
+    star.innerHTML = "★";
+    star.style.left = e.clientX + "px";
+    star.style.top = e.clientY + "px";
+    document.body.appendChild(star);
+
+    setTimeout(() => {
+        star.remove();
+    }, 1000);
+});
+
+
+
+
+
+</script>
+
+</body>
+</html>
